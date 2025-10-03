@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="shortcut icon"
+      href="{% static 'agendamento/images/hemope.jfif' %}"
+      type="image/x-icon"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agendamento de Exames</title>
+    <link
+      rel="stylesheet"
+      href="{% static 'agendamento/css/agendamento.css' %}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Cards lado a lado -->
+      <div class="cards-wrapper">
+        <!-- CARD INFORMAÇÕES -->
+        <div class="card info-section">
+          <h3>Bem-vindo ao Hemope</h3>
+          <p>
+            Aqui você pode agendar sua coleta de sangue de forma rápida e
+            segura.
+          </p>
+          <ul>
+            <li>Agendamento online simples</li>
+            <li>Confirmação por email</li>
+            <li>Equipe especializada</li>
+          </ul>
+          <img
+            src="{% static 'agendamento/images/icon_agen.png' %}"
+            alt="Hemope"
+          />
+        </div>
+
+        <!-- CARD FORMULÁRIO -->
+        <div class="card form-section">
+          <h2>Agende seu exame</h2>
+          <form method="POST" id="form-agendamento">
+            {% csrf_token %}
+            <input
+              type="text"
+              name="nome"
+              placeholder="Nome completo"
+              required
+            />
+            <input type="email" name="email" placeholder="E-mail" required />
+            <input type="tel" name="telefone" placeholder="Telefone" required />
+            <input type="date" name="data" id="data-agendamento" required />
+            <select name="hora" id="hora-agendamento" required>
+              <option value="">Selecione a data primeiro</option>
+            </select>
+            <select name="doador" required>
+              <option value="">É doador?</option>
+              <option value="True">Sim</option>
+              <option value="False">Não</option>
+            </select>
+            <button type="submit">Agendar</button>
+          </form>
+          <p class="mensagem" id="mensagem"></p>
+        </div>
+      </div>
+
+      <!-- BOTÃO VOLTAR -->
+      <a href="{% url 'home' %}">
+        <button class="btn-voltar">Voltar para Home</button>
+      </a>
+    </div>
+
+    <!-- Script JS -->
+    <script src="{% static 'agendamento/js/scriptagendamento.js' %}"></script>
+  </body>
+</html>

@@ -1,0 +1,193 @@
+/* =====================================
+   Paleta de cores
+===================================== */
+:root {
+  --red-primary: #c70000;
+  --red-secondary: #ff4d4d;
+  --background-light: #fff5f5;
+  --text-dark: #2c2c2c;
+  --input-border: #ddd;
+  --input-focus: #c70000;
+  --button-shadow: rgba(199, 0, 0, 0.3);
+  --card-shadow: rgba(0, 0, 0, 0.08);
+}
+
+/* =====================================
+   Reset básico
+===================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", "Arial", sans-serif;
+}
+
+body {
+  background-color: var(--background-light);
+  color: var(--text-dark);
+  line-height: 1.5;
+  font-size: 1rem;
+  min-height: 100vh;
+  overflow-x: hidden; /* impede scroll horizontal */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 1rem;
+}
+
+/* =====================================
+   Container principal
+===================================== */
+.container {
+  margin-top: 4rem;
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* =====================================
+   Wrapper dos cards
+===================================== */
+.cards-wrapper {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap; /* permite quebrar em telas pequenas */
+  justify-content: space-between;
+}
+
+/* =====================================
+   Card base
+===================================== */
+.card {
+  background-color: #fff;
+  flex: 1 1 48%; /* cada card ocupa cerca de metade da largura */
+  min-width: 300px;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px var(--card-shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-height: 90vh; /* evita que extrapole a tela */
+  overflow-y: auto; /* caso conteúdo maior, aparece scroll interno */
+}
+
+/* =====================================
+   Card Info
+===================================== */
+.info-section h3 {
+  text-align: center;
+  color: var(--red-primary);
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
+.info-section p,
+.info-section ul {
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.info-section ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+}
+
+.info-section img {
+  width: 100%;
+  margin-top: 2.5rem;
+  max-height: 12rem;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* =====================================
+   Card Form
+===================================== */
+.form-section h2 {
+  color: var(--red-primary);
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.50rem;
+}
+
+input,
+select {
+  padding: 1rem 0.8rem;
+  border: 1px solid var(--input-border);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  background-color: #fafafa;
+  transition: all 0.3s ease;
+}
+
+input:focus,
+select:focus {
+  border-color: var(--input-focus);
+  outline: none;
+  box-shadow: 0 0 6px rgba(199, 0, 0, 0.2);
+}
+
+button {
+  background-color: var(--red-primary);
+  color: #fff;
+  padding: 0.7rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px var(--button-shadow);
+}
+
+button:hover {
+  background-color: var(--red-secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px var(--button-shadow);
+}
+
+.mensagem {
+  color: var(--red-primary);
+  font-weight: 500;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* =====================================
+   Botão voltar
+===================================== */
+.back-button {
+  margin-top: 1rem;
+  align-self: center;
+}
+
+/* =====================================
+   Responsividade
+===================================== */
+@media (max-width: 992px) {
+  .cards-wrapper {
+    flex-direction: column; /* empilha no mobile */
+    gap: 1rem;
+  }
+
+  .card {
+    flex: 1 1 100%;
+    max-height: none;
+  }
+
+  input,
+  select,
+  button {
+    font-size: 0.85rem;
+    padding: 0.55rem 0.75rem;
+  }
+}

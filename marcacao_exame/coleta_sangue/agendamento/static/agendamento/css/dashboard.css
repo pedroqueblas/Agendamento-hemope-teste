@@ -1,0 +1,173 @@
+/* =====================
+   VARIÁVEIS DE COR
+===================== */
+:root {
+  --red-primary: #c70000;
+  --red-secondary: #ff4d4d;
+  --red-dark: #800000;
+  --background-light: #fff5f5;
+  --text-dark: #2c2c2c;
+}
+
+/* =====================
+   RESET BÁSICO
+===================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', Arial, sans-serif;
+}
+
+body {
+    background-color: var(--background-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* =====================
+   CONTAINER PRINCIPAL
+===================== */
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+/* =====================
+   CABEÇALHO
+===================== */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.header h2 {
+    color: var(--red-primary);
+}
+
+.btn-logout {
+    background-color: var(--red-secondary);
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-logout:hover {
+    background-color: var(--red-dark);
+}
+
+/* =====================
+   FILTRO DE DATA
+===================== */
+.filtro-section {
+    margin-bottom: 1.5rem;
+}
+
+.filtro-data {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.filtro-data label {
+    font-weight: bold;
+}
+
+.filtro-data input[type="date"] {
+    padding: 0.5rem;
+    border-radius: 6px;
+    border: 1px solid var(--red-secondary);
+}
+
+.filtro-data button {
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    border: none;
+    background-color: var(--red-primary);
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filtro-data button:hover {
+    background-color: var(--red-dark);
+}
+
+.btn-limpar {
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    background-color: var(--red-secondary);
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-limpar:hover {
+    background-color: var(--red-dark);
+}
+
+/* =====================
+   TABELA DE AGENDAMENTOS
+===================== */
+.table-section {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+thead {
+    background-color: var(--red-primary);
+    color: #fff;
+}
+
+th, td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+tbody tr:hover {
+    background-color: var(--background-light);
+}
+
+.empty {
+    text-align: center;
+    font-style: italic;
+    color: var(--text-dark);
+}
+
+/* =====================
+   RESPONSIVIDADE
+===================== */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .filtro-data {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    th, td {
+        padding: 0.5rem;
+    }
+}

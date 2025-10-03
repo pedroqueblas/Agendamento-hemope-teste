@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="../static/agendamento/images/hemope.jfif"
+      type="image/x-icon"
+    />
+    <title>Painel de Agendamentos</title>
+    <link
+      rel="stylesheet"
+      href="{% static 'agendamento/css/dashboard.css' %}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Cabeçalho -->
+      <header class="header">
+        <h2>Painel de Agendamentos</h2>
+        <a href="{% url 'logout' %}" class="btn-logout">Sair</a>
+      </header>
+
+      <!-- Filtro por data -->
+      <section class="filtro-section">
+        <form method="GET" class="filtro-data">
+          <label for="data">Filtrar por data:</label>
+          <input type="date" name="data" id="data" value="{{ data_filtro }}" />
+          <button type="submit">Filtrar</button>
+          <a href="{% url 'dashboard' %}" class="btn-limpar">Limpar filtro</a>
+        </form>
+      </section>
+
+      <!-- Tabela de Agendamentos -->
+      <section class="table-section">
+        <table>
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Doador</th>
+              <th>Email</th>
+              <th>Telefone</th>
+              <th>Data</th>
+              <th>Hora</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for a in agendamentos %}
+            <tr>
+              <td>{{ a.nome }}</td>
+              <td>{{ a.doador|yesno:"Sim,Não" }}</td>
+              <td>{{ a.email }}</td>
+              <td>{{ a.telefone }}</td>
+              <td>{{ a.data }}</td>
+              <td>{{ a.hora }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+              <td colspan="6" class="empty">Nenhum agendamento</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </section>
+    </div>
+  </body>
+</html>

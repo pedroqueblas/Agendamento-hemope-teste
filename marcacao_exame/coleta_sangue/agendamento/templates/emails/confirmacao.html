@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff5f5;
+      color: #333;
+      padding: 20px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      max-width: 500px;
+      margin: auto;
+    }
+    h2 {
+      color: #c70000;
+    }
+    .info {
+      margin-top: 15px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Confirmação de Agendamento</h2>
+    <p>Olá <b>{{ nome }}</b>,</p>
+    <p>Seu agendamento para a coleta de sangue foi registrado com sucesso!</p>
+
+    <div class="info">
+      <p><b>Data:</b> {{ data }}</p>
+      <p><b>Hora:</b> {{ hora }}</p>
+      <p><b>Doador:</b> {{ doador }}</p>
+    </div>
+
+    <p>Obrigado por ajudar a salvar vidas ❤️</p>
+  </div>
+</body>
+</html>
