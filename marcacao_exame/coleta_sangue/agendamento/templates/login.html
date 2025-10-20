@@ -5,17 +5,21 @@
     <meta charset="UTF-8" />
     <link
       rel="shortcut icon"
-      href="../static/agendamento/images/hemope.jfif"
+      href="{% static 'agendamento/images/hemope.jfif' %}"
       type="image/x-icon"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
     <title>Login Médico</title>
     <link rel="stylesheet" href="{% static 'agendamento/css/login.css' %}" />
   </head>
+
   <body>
     <main class="login-container">
       <section class="login-card">
-        <h2>Login Médico</h2>
+        <h2>Login</h2>
 
         {% if error %}
         <p class="error-msg">{{ error }}</p>
@@ -23,7 +27,6 @@
 
         <form method="POST" class="login-form">
           {% csrf_token %}
-
           <div class="form-group">
             <label for="username">Usuário</label>
             <input
@@ -48,11 +51,26 @@
 
           <button type="submit" class="btn-login">Entrar</button>
         </form>
+
         <!-- BOTÃO VOLTAR -->
         <a href="{% url 'home' %}">
           <button class="btn-voltar">Voltar para Home</button>
         </a>
       </section>
     </main>
+
+    <!-- 🔐 Se já estiver logado, redireciona automaticamente -->
+    {% if user.is_authenticated %}
+    <script>
+      window.location.href = "{% url 'dashboard' %}";
+    </script>
+    {% endif %}
+
+    <!-- 🚪 Logout automático ao fechar a aba/navegador -->
+    <script>
+      window.addEventListener("beforeunload", function () {
+        navigator.sendBeacon("/logout/");
+      });
+    </script>
   </body>
 </html>
