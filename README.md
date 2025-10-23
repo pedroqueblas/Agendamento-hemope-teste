@@ -1,6 +1,6 @@
-Agendamento HEMOPE - Documentação do Projeto
-Sistema web desenvolvido para facilitar o agendamento de coletas de sangue e exames no HEMOPE. O projeto permite que usuários realizem agendamentos de forma prática e segura, controlando datas, horários e evitando duplicidade de registros.
-Funcionalidades
+# Agendamento HEMOPE - Documentação do Projeto
+# Sistema web desenvolvido para facilitar o agendamento de coletas de sangue e exames no HEMOPE. O projeto permite que usuários realizem agendamentos de forma prática e segura, controlando datas, horários e evitando duplicidade de registros.
+# Funcionalidades
 •	Agendamento de exames e coletas de sangue
 •	Validação de horários disponíveis (entre 07:30 e 17:00)
 •	Envio de confirmação por e-mail (quando configurado)
@@ -35,20 +35,20 @@ Agendamento-hemope-teste/
 ├── manage.py
 └── README.md
 
-Como Executar o Projeto
-1️⃣ Clonar o Repositório:
+# Como Executar o Projeto
+# 1️⃣ Clonar o Repositório:
 git clone https://github.com/pedroqueblas/Agendamento-hemope-teste.git
 cd Agendamento-hemope-teste/marcacao_exame
-2️⃣ Criar Ambiente Virtual:
+# 2️⃣ Criar Ambiente Virtual:
 python -m venv venv
 venv\Scripts\activate (Windows)
 source venv/bin/activate (Linux/Mac)
-3️⃣ Instalar Dependências:
+# 3️⃣ Instalar Dependências:
  pip install -r requirements.txt
 4️⃣ Aplicar Migrações:
  python manage.py makemigrations
  python manage.py migrate
-5️⃣ Executar o Servidor:
+# 5️⃣ Executar o Servidor:
  python manage.py runserver
 Acesse http://127.0.0.1:8000/
 Configurações de E-mail (Opcional)
@@ -60,7 +60,7 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'seuemail@gmail.com'
 EMAIL_HOST_PASSWORD = 'suasenha'
 
-Use variáveis de ambiente (.env) para proteger suas credenciais.
+# Use variáveis de ambiente (.env) para proteger suas credenciais.
 Melhorias Futuras
 •	Sistema de autenticação para administradores e usuários
 •	Painel para reagendar ou cancelar consultas
