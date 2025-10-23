@@ -1,28 +1,25 @@
 from django.db import models
 from django.core.exceptions import ValidationError
-import datetime
+from datetime import time
 
-
+# Validador de horário
 def validate_horario(value):
-    """Valida se o horário está entre 07:30 e 17:00."""
-    inicio = datetime.time(7, 30)
-    fim = datetime.time(17, 0)
+    """Valida se o horário está entre 07:30 e 17:00"""
+    inicio = time(7, 30)
+    fim = time(17, 0)
     if not (inicio <= value <= fim):
-        raise ValidationError("O horário deve estar entre 07:30 e 17:00.")
-
+        raise ValidationError("O horário deve estar entre 07:30 e 17:00")
 
 class Agendamento(models.Model):
-    nome = models.CharField(max_length=150)
+    nome = models.CharField(max_length=255)
     email = models.EmailField()
     telefone = models.CharField(max_length=20)
     data = models.DateField()
-    hora = models.TimeField(validators=[validate_horario])  # ⬅️ restrição aplicada
-    doador = models.BooleanField(default=False)  # novo campo para saber se é doador
-    criado_em = models.DateTimeField(auto_now_add=True)
-
-    class Meta:
-        ordering = ['data', 'hora']
+    hora = models.TimeField(validators=[validate_horario])
+    doador = models.BooleanField(default=False)
+    cancelado = models.BooleanField(default=False)  # Novo campo
+    token_cancelamento = models.CharField(max_length=64, blank=True, null=True)  # Token único
 
     def __str__(self):
-        doador_status = "Doador" if self.doador else "Não Doador"
-        return f"{self.nome} - {self.data} {self.hora} ({doador_status})"
+        status = "Cancelado" if self.cancelado else "Ativo"
+        return f"{self.nome} - {self.data} {self.hora} ({status})"

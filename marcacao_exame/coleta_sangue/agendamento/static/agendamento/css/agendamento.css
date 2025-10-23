@@ -94,7 +94,7 @@ body {
 
 .info-section p,
 .info-section ul {
-  font-size: 1rem;
+  font-size: 1.2rem;
   line-height: 1.4;
 }
 
@@ -102,6 +102,10 @@ body {
   list-style-type: disc;
   padding-left: 1.5rem;
   line-height: 2rem;
+}
+
+.info-section li{
+  margin: 1rem;
 }
 
 /* =====================================
@@ -128,6 +132,7 @@ select {
   font-size: 0.9rem;
   background-color: #fafafa;
   transition: all 0.3s ease;
+  margin: 0.3rem;
 }
 
 input:focus,
@@ -148,6 +153,7 @@ button {
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 4px 12px var(--button-shadow);
+  margin-top: 1rem;
 }
 
 button:hover {
@@ -166,9 +172,10 @@ button:hover {
 /* =====================================
    Botão voltar
 ===================================== */
-.back-button {
+.btn-voltar {
   margin-top: 1rem;
   align-self: center;
+  margin-left: 40%;
 }
 
 /* =====================================

@@ -7,6 +7,8 @@
   --red-dark: #800000;
   --background-light: #fff5f5;
   --text-dark: #2c2c2c;
+  --green-status: #28a745;
+  --red-status: #dc3545;
 }
 
 /* =====================
@@ -146,6 +148,41 @@ tbody tr:hover {
     background-color: var(--background-light);
 }
 
+/* =====================
+   STATUS
+===================== */
+.status-ativo {
+    color: var(--green-status);
+    font-weight: bold;
+}
+
+.status-cancelado {
+    color: var(--red-status);
+    font-weight: bold;
+}
+
+/* Linha cancelada */
+tr.cancelado {
+    background-color: #ffe6e6;
+}
+
+/* Botão cancelar */
+.btn-cancelar {
+    background-color: var(--red-primary);
+    color: #fff;
+    padding: 5px 12px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
+
+.btn-cancelar:hover {
+    background-color: var(--red-dark);
+}
+
+/* Empty table */
 .empty {
     text-align: center;
     font-style: italic;
@@ -169,5 +206,10 @@ tbody tr:hover {
 
     th, td {
         padding: 0.5rem;
+    }
+
+    .btn-cancelar, .btn-logout {
+        padding: 4px 10px;
+        font-size: 0.8rem;
     }
 }

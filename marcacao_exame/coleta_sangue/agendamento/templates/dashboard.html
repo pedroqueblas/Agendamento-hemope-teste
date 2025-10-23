@@ -42,21 +42,40 @@
             <th>Telefone</th>
             <th>Data</th>
             <th>Hora</th>
+            <th>Status</th>
+            <th>Ação</th>
           </tr>
         </thead>
         <tbody>
           {% for a in agendamentos %}
-          <tr>
+          <tr class="{% if a.cancelado %}cancelado{% endif %}">
             <td>{{ a.nome }}</td>
             <td>{{ a.doador|yesno:"Sim,Não" }}</td>
             <td>{{ a.email }}</td>
             <td>{{ a.telefone }}</td>
             <td>{{ a.data }}</td>
             <td>{{ a.hora }}</td>
+            <td>
+              {% if a.cancelado %}
+                <span class="status-cancelado">Cancelado</span>
+              {% else %}
+                <span class="status-ativo">Ativo</span>
+              {% endif %}
+            </td>
+            <td>
+              {% if not a.cancelado %}
+                <form method="POST" action="{% url 'cancelar_dashboard' a.id %}">
+                  {% csrf_token %}
+                  <button type="submit" class="btn-cancelar">Cancelar</button>
+                </form>
+              {% else %}
+                <span>-</span>
+              {% endif %}
+            </td>
           </tr>
           {% empty %}
           <tr>
-            <td colspan="6" class="empty">Nenhum agendamento</td>
+            <td colspan="8" class="empty">Nenhum agendamento</td>
           </tr>
           {% endfor %}
         </tbody>
